@@ -1,4 +1,3 @@
-require("dotenv").config()
 const express = require("express")
 const app = express()
 const axios = require("axios")
@@ -15,7 +14,7 @@ const { FILE_NAME, PORT, URL } = require("./constants")
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get("/", async (req, res) => {
+app.get("/", async (_, res) => {
   fs.readFile(FILE_NAME, async (err, file) => {
     if (err) {
       const { data } = await axios.get(URL)
